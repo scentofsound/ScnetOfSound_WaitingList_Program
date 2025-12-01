@@ -1,0 +1,21 @@
+from pydantic import BaseModel
+from datetime import datetime
+from typing import Optional
+
+class WaitingCreate(BaseModel):
+    phone: str
+
+class Waiting(BaseModel):
+    id: int
+    phone: str
+    people: int   # 🔥 이렇게 잠깐 완화
+
+    status: str
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
+
+class WaitingCreate(BaseModel):
+    phone: str
+    people: int

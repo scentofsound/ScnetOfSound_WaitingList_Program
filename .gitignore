@@ -1,0 +1,23 @@
+# Python venv
+venv/
+
+# Node modules
+scenti_waiting/node_modules/
+
+# SSH & private keys
+*.pem
+sshConnect.sh
+
+# macOS 자동 파일
+.DS_Store
+
+# Logs
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Build output
+scenti_waiting/build/
+
