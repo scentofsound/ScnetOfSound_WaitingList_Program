@@ -21,3 +21,6 @@ __pycache__/
 # Build output
 scenti_waiting/build/
 
+# backend db
+waiting.db
+
