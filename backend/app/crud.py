@@ -55,7 +55,7 @@ def send_sms(db: Session, phone: str, people: int):
         "sender": ALIGO_SENDER,
         "receiver": phone,
         "msg": message,
-        "testmode_yn": "Y"  # 테스트 모드: Y (실제 발송 안됨). 배포 시 "N"으로 변경!
+        "testmode_yn": "N"  # 테스트 모드: Y (실제 발송 안됨). 배포 시 "N"으로 변경!
     }
 
     try:
