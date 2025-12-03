@@ -71,15 +71,25 @@ export default function WaitingPage() {
   const handleSubmit = async () => {
     const formatted = formatPhone(phoneNumber);
 
+    const payload = JSON.stringify({ phone: formatted, people })
+
     const res = await fetch(`${API_BASE_URL}/waiting/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone: formatted, people }),
+      body: payload,
+    });
+
+    const res2 = await fetch(`${API_BASE_URL}/send_sms/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
     });
 
     console.log("data: " + JSON.stringify({ phone: formatted, people }))
-    const data = await res.json();
 
+    const data = await res.json();
+    const data_sms = await res2.json();
+    console.log("data_sms: ", data_sms)
     // 팝업 띄우기
     setShowPopup(true);
 
@@ -87,6 +97,7 @@ export default function WaitingPage() {
     setPhoneNumber("");
     setStep(1);
   };
+
 
   useEffect(() => {
     fetchWaitingList();

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Any
 
 class WaitingCreate(BaseModel):
     phone: str
@@ -16,6 +16,16 @@ class Waiting(BaseModel):
     class Config:
         orm_mode = True
 
+
 class WaitingCreate(BaseModel):
     phone: str
     people: int
+
+class SMSRequest(BaseModel):
+    phone: str
+    people: int
+
+class SMSResponse(BaseModel):
+    message: str
+    sms_status: Any = None
+    data: Any = None

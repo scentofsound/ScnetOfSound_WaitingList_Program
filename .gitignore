@@ -22,5 +22,5 @@ __pycache__/
 scenti_waiting/build/
 
 # backend db
-waiting.db
-
+backend/waiting.db
+backend/.env
