@@ -20,7 +20,7 @@ __pycache__/
 
 # Build output
 scenti_waiting/build/
-
+front/dist/
 # backend db
 backend/waiting.db
 backend/.env
