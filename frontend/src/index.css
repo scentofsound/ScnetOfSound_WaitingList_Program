@@ -2,3 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.keypad-btn.pressed {
+  transform: scale(0.9);
+  background-color: #d1d5db; /* gray-300 */
+}

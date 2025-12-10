@@ -1,15 +1,12 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional, Any
 
-class WaitingCreate(BaseModel):
-    phone: str
 
 class Waiting(BaseModel):
     id: int
-    phone: str
-    people: int   # 🔥 이렇게 잠깐 완화
-
+    service_id: int         # 🔥 문자열 아님
+    ticket_number: int
+    people: int
     status: str
     created_at: datetime
 
@@ -17,15 +14,10 @@ class Waiting(BaseModel):
         orm_mode = True
 
 
+
 class WaitingCreate(BaseModel):
-    phone: str
     people: int
 
-class SMSRequest(BaseModel):
-    phone: str
-    people: int
 
-class SMSResponse(BaseModel):
-    message: str
-    sms_status: Any = None
-    data: Any = None
+class ServiceCreate(BaseModel):
+    name: str

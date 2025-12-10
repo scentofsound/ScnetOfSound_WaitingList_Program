@@ -32,7 +32,7 @@ app.add_middleware(
 
 app.include_router(waiting.router)
 app.include_router(admin.router)
-app.include_router(send_sms.router)
+# app.include_router(send_sms.router)
 
 
 
