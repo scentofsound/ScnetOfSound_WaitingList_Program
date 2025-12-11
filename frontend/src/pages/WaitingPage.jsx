@@ -182,16 +182,16 @@ const handleSubmit = async () => {
       </h1>
 
         {/* 상단 두 개 카드 */}
-        <div className="grid grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-8">
           <div className="bg-gray-50 rounded-2xl shadow-sm p-8 h-80 flex flex-col justify-center items-center">
             <p className="text-gray-500 text-3xl mb-2">남은 대기열</p>
             <p className="text-7xl font-extrabold">{waitingCount}팀</p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl shadow-sm p-8 h-80 flex flex-col justify-center items-center">
+          {/* <div className="bg-gray-50 rounded-2xl shadow-sm p-8 h-80 flex flex-col justify-center items-center">
             <p className="text-gray-500 text-3xl mb-2">등록 시 번호</p>
             <p className="text-7xl font-extrabold text-indigo-400">{nextNumber}번</p>
-          </div>
+          </div> */}
         </div>
 
         {/* 🔥 대형 예상 대기시간 카드 */}
