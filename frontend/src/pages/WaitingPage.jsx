@@ -4,6 +4,8 @@ import { API_BASE_URL } from "../api/config";
 import ScentiLogo from "../assets/scenti.svg?react";
 import Popup from "../components/Popup";
 import { useParams } from "react-router-dom";
+import QRCode from "react-qr-code";
+
 
 
 export default function WaitingPage() {
@@ -15,6 +17,10 @@ export default function WaitingPage() {
   const [estimatedTime, setEstimatedTime] = useState(0);
 
   const [showPopup, setShowPopup] = useState(false);
+
+  const [generatedQrUrl, setGeneratedQrUrl] = useState(null);
+  const [generatedTicket, setGeneratedTicket] = useState(null);
+
 
   const SERVICE_LABEL = {
     perfume: "Perfume Waiting",
@@ -102,6 +108,21 @@ const handlePeopleClick = (num) => {
 };
 
 
+// const handleSubmit = async () => {
+//   const res = await fetch(`${API_BASE_URL}/waiting/${serviceName}`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ people }),
+//   });
+
+//   const data = await res.json();
+
+//   setShowPopup(true);
+//   setPeople("");
+
+//   fetchWaitingList(); // 새로고침
+// };
+
 const handleSubmit = async () => {
   const res = await fetch(`${API_BASE_URL}/waiting/${serviceName}`, {
     method: "POST",
@@ -111,10 +132,22 @@ const handleSubmit = async () => {
 
   const data = await res.json();
 
-  setShowPopup(true);
+  // 새로 발급된 번호
+  const ticket = data.ticket_number;
+
+  // QR 페이지 URL
+  const qrUrl = `${window.location.origin}/status/${serviceName}/${ticket}`;
+
+  console.log("QR URL:", qrUrl);
+
+  // 팝업 등에 전달할 수 있게 상태 저장
+  setGeneratedQrUrl(qrUrl);
+  setGeneratedTicket(ticket);
+
+  setShowPopup(true);   // 팝업 열기
   setPeople("");
 
-  fetchWaitingList(); // 새로고침
+  fetchWaitingList();
 };
 
 
@@ -231,10 +264,17 @@ const handleSubmit = async () => {
       </div>
       {showPopup && (
         <Popup
-          message="등록 완료되었습니다."
-          buttonText="닫기"
-          onClose={() => setShowPopup(false)}
-        />
+        message={
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-3xl font-bold">등록 완료!</p>
+            <QRCode value={generatedQrUrl} size={180} />
+            <p className="text-gray-500 text-xl">
+              당신의 번호는 {generatedTicket}번입니다.
+            </p>
+          </div>
+        }
+        onClose={() => setShowPopup(false)}
+      />
       )}
     </div>
   );

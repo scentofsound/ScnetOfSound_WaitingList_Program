@@ -25,6 +25,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import WaitingPage from "./pages/WaitingPage";
 import AdminHome from "./admin/AdminHome";
+import UserStatusPage from "./pages/UserStatusPage";
 import "./output.css";
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
 
         {/* 서비스별 관리자 페이지 */}
         <Route path="/admin/:serviceName" element={<AdminHome />} />
+
+        <Route path="/status/:serviceName/:ticketNumber" element={<UserStatusPage />} />
+
       </Routes>
     </Router>
   );
