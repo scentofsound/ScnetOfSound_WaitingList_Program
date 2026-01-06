@@ -184,8 +184,8 @@ const handleSubmit = async () => {
         {/* 상단 두 개 카드 */}
         <div className="grid grid-cols-1 gap-6 mb-8">
           <div className="bg-gray-50 rounded-2xl shadow-sm p-8 h-80 flex flex-col justify-center items-center">
-            <p className="text-gray-500 text-3xl mb-2">남은 대기열</p>
-            <p className="text-7xl font-extrabold">{waitingCount}팀</p>
+            <p className="text-gray-500 text-3xl mb-2">People Waiting</p>
+            <p className="text-7xl font-extrabold">{waitingCount} team</p>
           </div>
 
           {/* <div className="bg-gray-50 rounded-2xl shadow-sm p-8 h-80 flex flex-col justify-center items-center">
@@ -196,9 +196,9 @@ const handleSubmit = async () => {
 
         {/* 🔥 대형 예상 대기시간 카드 */}
         <div className="flex-1 bg-gray-50 rounded-2xl shadow-sm p-8 flex flex-col justify-center items-center">
-          <p className="text-gray-500 text-4xl mb-6">예상 대기시간</p>
+          <p className="text-gray-500 text-4xl mb-6">Estimated Wait Time</p>
           <p className="text-8xl font-extrabold text-indigo-500">
-            {estimatedTime}분
+            {estimatedTime} min
           </p>
         </div>
 
@@ -210,7 +210,7 @@ const handleSubmit = async () => {
 
           {
             <>
-              <div className="text-center text-4xl font-bold mb-8">참여 인원 입력</div>
+              <div className="text-center text-4xl font-bold mb-8">Enter number of people</div>
               <input
                 value={people ? `${people}명` : ""}
                 readOnly
@@ -255,7 +255,7 @@ const handleSubmit = async () => {
                     transition transform
                   "
                 >
-                  다음
+                  Next
                 </button>
               </div>
             </>
@@ -266,10 +266,10 @@ const handleSubmit = async () => {
         <Popup
         message={
           <div className="flex flex-col items-center gap-4">
-            <p className="text-3xl font-bold">등록 완료!</p>
+            <p className="text-3xl font-bold">Registration Complete!</p>
             <QRCode value={generatedQrUrl} size={180} />
             <p className="text-gray-500 text-xl">
-              당신의 번호는 {generatedTicket}번입니다.
+              Your number is {generatedTicket}.
             </p>
           </div>
         }

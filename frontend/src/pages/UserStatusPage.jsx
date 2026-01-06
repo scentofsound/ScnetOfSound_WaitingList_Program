@@ -61,25 +61,25 @@ export default function UserStatusPage() {
 
       {/* 남은 대기열 */}
       <div className="flex-1 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center">
-        <p className="text-gray-500 text-xl">남은 대기열</p>
+        <p className="text-gray-500 text-xl">People Waiting</p>
         <p className="text-5xl font-extrabold mt-2">{waitingCount}팀</p>
       </div>
 
       {/* 당신의 번호 */}
       <div className="flex-1 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center">
-        <p className="text-gray-500 text-xl">당신의 번호</p>
+        <p className="text-gray-500 text-xl">Your Number</p>
         <p className="text-5xl font-extrabold text-indigo-500 mt-2">{ticketNumber}번</p>
 
         {myTurn && (
           <p className="text-gray-600 text-lg mt-2">
-            현재 대기 순서: <span className="font-bold">{myTurn}번째</span>
+            Current Waiting: <span className="font-bold">{myTurn}th</span>
           </p>
         )}
       </div>
 
       {/* 예상 대기시간 */}
       <div className="flex-1 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center">
-        <p className="text-gray-500 text-xl">예상 대기시간</p>
+        <p className="text-gray-500 text-xl">Estimated Wait Time</p>
         <p className="text-6xl font-extrabold text-indigo-500 mt-4">{estimatedTime}분</p>
       </div>
 
@@ -87,7 +87,7 @@ export default function UserStatusPage() {
 
     {/* 푸터 */}
     <footer className="flex-none mt-6 pb-4 text-center text-gray-400 text-sm">
-      자동으로 2초마다 업데이트됩니다.
+      Update automatically every 2 seconds
     </footer>
 
   </div>
