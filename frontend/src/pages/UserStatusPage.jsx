@@ -62,13 +62,13 @@ export default function UserStatusPage() {
       {/* 남은 대기열 */}
       <div className="flex-1 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center">
         <p className="text-gray-500 text-xl">People Waiting</p>
-        <p className="text-5xl font-extrabold mt-2">{waitingCount}팀</p>
+        <p className="text-5xl font-extrabold mt-2">{waitingCount} team</p>
       </div>
 
       {/* 당신의 번호 */}
       <div className="flex-1 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center">
         <p className="text-gray-500 text-xl">Your Number</p>
-        <p className="text-5xl font-extrabold text-indigo-500 mt-2">{ticketNumber}번</p>
+        <p className="text-5xl font-extrabold text-indigo-500 mt-2">{ticketNumber}</p>
 
         {myTurn && (
           <p className="text-gray-600 text-lg mt-2">
@@ -80,7 +80,7 @@ export default function UserStatusPage() {
       {/* 예상 대기시간 */}
       <div className="flex-1 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center">
         <p className="text-gray-500 text-xl">Estimated Wait Time</p>
-        <p className="text-6xl font-extrabold text-indigo-500 mt-4">{estimatedTime}분</p>
+        <p className="text-6xl font-extrabold text-indigo-500 mt-4">{estimatedTime} min</p>
       </div>
 
     </main>
